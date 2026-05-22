@@ -1,0 +1,678 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url("https://images.unsplash.com/photo-1589405858862-2ac9cbb41321?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+        no-repeat center center fixed;
+    background-size: cover;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Logo Sizing and Alignment */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 75%; /* Allow it to be responsive */
+    max-width: 250px; /* This acts as the 'ceiling' size */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 24px; /* Controls the size of the icon */
+    color: #333; /* Sets the icon color */
+    transition:
+        color 0.3s,
+        transform 0.2s;
+}
+
+/* Specific colors on hover for a professional touch */
+.social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+.fa-facebook:hover {
+    color: #1877f2;
+}
+.fa-instagram:hover {
+    color: #e4405f;
+}
+.fa-youtube:hover {
+    color: #cd201f;
+}
+
+/* Shopping Cart Icon & Badge Styling */
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #d9534f; /* Eye-catching red badge */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Header & Nav */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Active Navigation Link */
+.main-nav a.active {
+    font-weight: bold;
+    color: #000; /* Darker than the standard #333 */
+    border-bottom: 3px solid #000; /* Adds a visual indicator below the text */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Stays on top of images */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav ul {
+    display: flex;
+    flex-direction: column; /* Stacked for mobile */
+    list-style: none;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.main-nav li {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.main-nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover:not(.active) {
+    background-color: #f4f4f4;
+    color: #000;
+}
+
+/* Grid System */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column for mobile */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #666;
+}
+
+.card-heading {
+    background: #888;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2x2 grid */
+    gap: 10px;
+    padding: 10px;
+}
+
+.photo-link {
+    border: 1px solid #000;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.photo-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This crops the image to fill the square without distorting it */
+    display: block;
+}
+
+/* Homepage Preview Cards */
+.preview-card {
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.preview-image {
+    position: relative;
+    aspect-ratio: 1 / 1; /* Keeps the square look from the wireframe */
+}
+
+.preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Informative Overlay or Badge */
+.preview-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #000;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.preview-info {
+    padding: 10px;
+    text-align: center;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.preview-info h4 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+    color: #333;
+}
+
+.preview-info p {
+    font-weight: bold;
+    color: #d9534f; /* Price accent color */
+    font-size: 0.85rem;
+}
+
+/* Footer */
+/* --- Footer & Signup Styling --- */
+.main-footer {
+    background: #fff;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+
+.footer-signup h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.footer-signup p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Signup Form Flexbox */
+.signup-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.signup-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.signup-form button {
+    padding: 12px 25px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.signup-form button:hover {
+    background-color: #333;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Responsive fix for mobile */
+@media (max-width: 500px) {
+    .signup-form {
+        flex-direction: column;
+    }
+}
+
+/* --- Media Queries --- */
+
+/* Medium Screens (> 500px) */
+@media (min-width: 500px) {
+    .main-nav ul {
+        flex-direction: row; /* Horizontal nav */
+        justify-content: space-around;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+    }
+}
+
+/* Large Screens (> 750px) */
+@media (min-width: 750px) {
+    /* Large screen specific tweaks can go here */
+    .main-header {
+        padding: 40px 0;
+    }
+}
+
+/* --- Best Sellers Page Styles --- */
+
+/* Page Headers */
+.bestsellers-section {
+    padding: 40px 0;
+}
+
+.page-heading {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.page-intro {
+    text-align: center;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(280px, 1fr)
+    ); /* Very robust responsive grid */
+    gap: 20px;
+}
+
+/* --- Product Card Styling --- */
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. Image Area */
+.product-image-container {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Keeps all product images consistent */
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 2. Details Area */
+.product-details {
+    padding: 20px;
+    flex-grow: 1; /* Makes the button always stay at the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tag & Rating */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #f0f0f0;
+    color: #333;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.product-rating i {
+    color: #ffc107; /* Modern gold star color */
+}
+
+.rating-score {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Product Name & Subtitle */
+.product-name {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.product-type {
+    font-size: 1rem;
+    color: #8392a5;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Specs List */
+.product-specs {
+    list-style: none;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Ensures equal card height */
+}
+
+.product-specs li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+/* A modern, subtle bullet point alternative */
+.product-specs li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #999;
+}
+
+/* Price */
+.product-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.currency {
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    width: 100%;
+    padding: 15px;
+    background: #000; /* As requested in the mock-up */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
+}
+
+.add-to-cart-btn i {
+    font-size: 1.2rem;
+}
+
+.add-to-cart-btn:hover {
+    background: #333; /* Modern dark grey on hover */
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.98); /* Simulates a physical press */
+}
+
+/* Layout for What's On and Trails sections */
+.whats-on-flex {
+    display: flex;
+    flex-direction: column; /* Stacked for mobile */
+    gap: 15px;
+    padding: 15px;
+}
+
+.text-box {
+    flex: 1;
+}
+
+.image-box {
+    flex: 1;
+    min-height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images/maps fill the space without stretching */
+    display: block;
+}
+
+/* Event Styling */
+.event-item {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid #888;
+}
+
+.event-item strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.event-item em {
+    color: #d9534f; /* Accent color for dates */
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Trail List Styling */
+.trail-list {
+    list-style: none;
+}
+
+.trail-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.trail-list i {
+    color: #4caf50; /* Green for trail pins */
+    margin-top: 5px;
+}
+
+@media (min-width: 750px) {
+    .whats-on-flex {
+        flex-direction: row; /* Side-by-side for Large Screens */
+    }
+}
+
+/* --- Servicing Page Styles --- */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.02);
+}
+
+/* Featured card highlight */
+.service-card.featured {
+    border: 2px solid #000;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d9534f;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.service-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.service-header h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.service-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.service-list {
+    list-style: none;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.service-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-list i {
+    color: #4caf50; /* Green checkmarks */
+}
+
+.service-btn {
+    width: 100%;
+    padding: 15px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.service-btn:hover {
+    background: #333;
+}

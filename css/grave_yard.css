@@ -1,0 +1,35 @@
+/* Active Navigation Link */
+.main-nav a.active {
+    font-weight: bold;
+    color: #000; /* Darker than the standard #333 */
+    border-bottom: 3px solid #000; /* Adds a visual indicator below the text */
+}
+
+.main-nav ul {
+    display: flex;
+    flex-direction: column; /* Stacked for mobile */
+    list-style: none;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.main-nav li {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.main-nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(280px, 1fr)
+    ); /* Very robust responsive grid */
+    gap: 20px;
+}
